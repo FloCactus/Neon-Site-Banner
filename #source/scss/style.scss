@@ -1,0 +1,252 @@
+/*Обнуление стилей страницы*/
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,*::before,*::after{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+:focus, :active{outline: none;}
+a:focus, a:active{outline: none;}
+
+header,footer,nav.aside{display: block;}
+
+html, body{
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust:100%;
+  -moz-text-size-adjust:100%;
+  -webkit-text-size-adjust:100%;
+}
+input, button, textarea{font-family: inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0; border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: 400;}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+
+%flex{ display: flex; justify-content: center; align-items: center;}
+
+.background{
+  height: 100vh;
+  .background_1{
+    height: 100%;
+    background: rgba(0, 0, 0 , .6) url(https://images.unsplash.com/photo-1494147086697-9cac90849503?ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80) 0 0 / cover no-repeat;
+    background-attachment: fixed;
+  }
+  .background_1_innerText{
+    @extend %flex;
+    flex-direction: column;
+    padding-top: 17%;
+    padding-left: 1.5rem;
+    padding-right: 9rem;
+    h2{
+      font-size: 4rem;
+      font-family: 'Noto Serif', serif;
+      letter-spacing: 0.7rem;
+      text-transform: uppercase;
+      color: #143066;
+      width: 100%;
+      text-align: center;
+      -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
+      line-height: 3rem;
+      outline: none;
+      animation: animate 7s linear infinite;
+      @keyframes animate{
+        0%, 18%, 20% {color:#143066;text-shadow: none;}
+        18.1%, 20.1%,100%{
+          color: #EBECFC;
+          text-shadow:0 0 10px #6A70D8,
+                      0 0 20px #6A70D8,
+                      0 0 40px #6A70D8,
+                      0 0 80px #6A70D8,
+                      0 0 160px #6A70D8;
+        }
+      }
+    }
+  }
+  .background_1_arrowDown{
+    @extend %flex;
+    padding: 60px 90px 0px 0px;
+    font-size: 30px;
+    overflow: hidden;
+    i{
+      height: 60px;
+      color:#A2B4D5;
+      text-shadow: 0 0 10px #6A70D8;
+      animation: animateArrow 3s linear infinite;
+    }
+    @keyframes animateArrow{
+      0%{transform: translateY(-10px);}
+      20%{transform: translateY(0px);}
+      40%{transform: translateY(15px);}
+      80%{transform: translateY(0px);}
+      100%{transform: translateY(-10px);}
+
+    }
+  }
+
+  .background_wrapper{
+    background: #111111;
+  }
+  .background_content{
+      height: 400px;
+      @extend %flex;
+      flex-direction: row;
+      &.background_motion{
+        position: relative;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+      }
+      &.background_rotate{
+        position: absolute;
+        top: calc(50% - 100px);
+        left: calc(50% - 110px);
+        width: 200px;
+        height: 200px;
+        transform-style: preserve-3d;
+        animation: rotate 20s linear infinite;
+         @keyframes rotate{
+          0%{transform: rotateX(0deg) rotateY(0deg);}
+          100%{transform: rotateX(360deg) rotateY(360deg);}
+        }
+        zoom:0;
+      }
+      &.background_sphere{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        &:nth-child(2){
+          transform: rotate(90deg);
+        }
+        &:nth-child(3){
+          transform: rotate(45deg);
+        }
+        &:nth-child(4){
+          transform: rotate(-45deg);
+        }
+        span{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transform-style: preserve-3d;
+          background: radial-gradient(#17252F,#CBE8FE);
+          border-radius: 50%;
+          &:nth-child(1){
+            transform: rotateY(0deg);
+          }
+          &:nth-child(2){
+            transform: rotateY(30deg);
+          }
+          &:nth-child(3){
+            transform: rotateY(60deg);
+          }
+          &:nth-child(4){
+            transform: rotateY(90deg);
+          }
+          &:nth-child(5){
+            transform: rotateY(120deg);
+          }
+          &:nth-child(6){
+            transform: rotateY(150deg);
+          }
+        }
+      }
+    }
+  .background_1_button{
+    a{
+      position: relative;
+      display: inline-block;
+      font-family: 'Noto Serif', serif;
+      padding: 15px 30px;
+      color: #CBE8FE;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      overflow: hidden;
+      transition: 0.2s;
+      span{
+        position: absolute;
+        display:block;
+        &:nth-child(1){
+          top:0;
+          left: -100%;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, #A2B4D5);
+        }
+        &:nth-child(3){
+          bottom:0;
+          right: -100%;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(270deg, transparent, #A2B4D5);
+        }
+        &:nth-child(2){
+          top:-100%;
+          right: 0;
+          width: 2px;
+          height: 100%;
+          background: linear-gradient(180deg, transparent, #A2B4D5);
+        }
+        &:nth-child(4){
+          bottom:-100%;
+          left: 0;
+          width: 2px;
+          height: 100%;
+          background: linear-gradient(360deg, transparent, #A2B4D5);
+        }
+      }
+      &:hover{
+        color: #17252F;
+        background: #A2B4D5;
+        box-shadow: 0 0 10px #A2B4D5,0 0 40px #A2B4D5,0 0 80px #A2B4D5;
+        transition-delay: 1s;
+        span:nth-child(1){
+          left: 100%;
+          transition: 1s;
+        }
+        span:nth-child(3){
+          right: 100%;
+          transition: 1s;
+          transition-delay: 0.5s;
+        }
+        span:nth-child(2){
+          top: 100%;
+          transition: 1s;
+          transition-delay: 0.25s;
+        }
+        span:nth-child(4){
+          bottom: 100%;
+          transition: 1s;
+          transition-delay: 0.75s;
+        }
+      }
+
+    }
+  }
+  .background_2{
+    height: 100%;
+    background: rgba(0, 0, 0 ) url(https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80) 0 0 / cover no-repeat;
+    background-attachment: fixed;
+  }
+
+}
